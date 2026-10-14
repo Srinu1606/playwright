@@ -10,9 +10,13 @@ test('admin can open Holidays Creation', async ({ page }) => {
   const leavePage = new LeaveManagementPage(page);
  
   await loginPage.goto();
-  await loginPage.login(process.env.APP_USER, process.env.APP_PASS);
+  await loginPage.login("cadmin","Master@1234");
   await homePage.openModule('Leave Management');
-  await leavePage.openHolidaysCreation();
+  await leavePage.openHolidaysCreation('30', 'September', '2026','General');
+  await leavePage.selectFunctionalLink('Shift');
+  await leavePage.selectShifts(['Week Off', 'Azure']);
+  await leavePage.setHolidayRepeat(true, '5');
+  await leavePage.submitAndConfirm();
  
   // Add an assertion for what the Holidays Creation screen shows, for example:
   // await expect(page).toHaveURL(/holiday/i);
