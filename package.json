@@ -1,5 +1,10 @@
 {
+  "type": "module",
+  "scripts": {
+    "bdd": "cucumber-js"
+  },
   "devDependencies": {
+    "@cucumber/cucumber": "^12.0.0",
     "@playwright/test": "^1.64.1",
     "dotenv": "^18.0.8"
   }
